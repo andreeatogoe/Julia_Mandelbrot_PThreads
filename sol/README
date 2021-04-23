@@ -1,0 +1,15 @@
+TOGOE-DULCU ANDREEA-CRISTINA 332 CB TEMA1 APD
+
+	Pe baza implementarii secventiale date, am construit functiile 
+run_julia_par si run_mandelbrot_par, ce impart calculele intre cele thread_nr 
+thread-uri pe care le creez in main. La crearea thread-urilor, drept parametru 
+le transmit functia f, in interiorul careia sunt apelate cele doua functii 
+mentionate mai sus. Am paralelizat atat calculul matricii julia respectiv 
+mandelbrot, cat si operatia de transformare din coordonate matematice in 
+coordonate ecran, impartind loop-urile intre toate thread-urile. Am ales 
+aceasta abordare pentru a folosi thread-urile create o singura data pentru 
+ambele tipuri de multimi, functia f apeland la randul ei ambele functii. Dupa 
+join-ul threadurilor, apelez functiile de afisare a rezultatelor in fisiere. 
+Ma folosesc de elementul de sincronizare de tip bariera, pentru ma asigura ca 
+inainte de transformarea in coordonate ecran, intreaga matrice este calculata 
+complet, pentru a nu se intampla suprascrieri nedorite.
